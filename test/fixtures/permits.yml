@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notified_at: 2018-03-03 20:36:57
+  address: MyString
+  location: 
+  city_permit: one
+
+two:
+  notified_at: 2018-03-03 20:36:57
+  address: MyString
+  location: 
+  city_permit: two

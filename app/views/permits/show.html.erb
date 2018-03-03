@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Notified at:</strong>
+  <%= @permit.notified_at %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @permit.address %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @permit.location %>
+</p>
+
+<p>
+  <strong>City permit:</strong>
+  <%= @permit.city_permit %>
+</p>
+
+<%= link_to 'Edit', edit_permit_path(@permit) %> |
+<%= link_to 'Back', permits_path %>

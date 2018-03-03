@@ -5,7 +5,6 @@ class CityPermit < ApplicationRecord
                         {'$order' => 'reviewstatuschangeddate ASC'})
 
     permits.each do |permit|
-      fail permit.inspect
       cs = self.new
       cs.attributes = permit.to_hash
       cs.save!
