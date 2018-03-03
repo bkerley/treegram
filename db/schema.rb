@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180303193626) do
+ActiveRecord::Schema.define(version: 20180303203656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "city_permits", force: :cascade do |t|
     t.string "plannumber"
@@ -24,4 +25,15 @@ ActiveRecord::Schema.define(version: 20180303193626) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "permits", force: :cascade do |t|
+    t.datetime "notified_at"
+    t.string "address"
+    t.geometry "location", limit: {:srid=>0, :type=>"st_point"}
+    t.bigint "city_permit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_permit_id"], name: "index_permits_on_city_permit_id"
+  end
+
+  add_foreign_key "permits", "city_permits"
 end
