@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Plan number</th>
-      <th>Property address</th>
-      <th>Review status</th>
-      <th>Review status changed date</th>
+      <th>Plannumber</th>
+      <th>Propertyaddress</th>
+      <th>Reviewstatus</th>
+      <th>Reviewstatuschangeddate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @city_permits.each do |city_permit| %>
       <tr>
-        <td><%= city_permit.plan_number %></td>
-        <td><%= city_permit.property_address %></td>
-        <td><%= city_permit.review_status %></td>
-        <td><%= city_permit.review_status_changed_date %></td>
+        <td><%= city_permit.plannumber %></td>
+        <td><%= city_permit.propertyaddress %></td>
+        <td><%= city_permit.reviewstatus %></td>
+        <td><%= city_permit.reviewstatuschangeddate %></td>
         <td><%= link_to 'Show', city_permit %></td>
         <td><%= link_to 'Edit', edit_city_permit_path(city_permit) %></td>
         <td><%= link_to 'Destroy', city_permit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

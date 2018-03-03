@@ -17,7 +17,7 @@ class CityPermitsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create city_permit" do
     assert_difference('CityPermit.count') do
-      post city_permits_url, params: { city_permit: { plan_number: @city_permit.plan_number, property_address: @city_permit.property_address, review_status: @city_permit.review_status, review_status_changed_date: @city_permit.review_status_changed_date } }
+      post city_permits_url, params: { city_permit: { plannumber: @city_permit.plannumber, propertyaddress: @city_permit.propertyaddress, reviewstatus: @city_permit.reviewstatus, reviewstatuschangeddate: @city_permit.reviewstatuschangeddate } }
     end
 
     assert_redirected_to city_permit_url(CityPermit.last)
@@ -34,7 +34,7 @@ class CityPermitsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update city_permit" do
-    patch city_permit_url(@city_permit), params: { city_permit: { plan_number: @city_permit.plan_number, property_address: @city_permit.property_address, review_status: @city_permit.review_status, review_status_changed_date: @city_permit.review_status_changed_date } }
+    patch city_permit_url(@city_permit), params: { city_permit: { plannumber: @city_permit.plannumber, propertyaddress: @city_permit.propertyaddress, reviewstatus: @city_permit.reviewstatus, reviewstatuschangeddate: @city_permit.reviewstatuschangeddate } }
     assert_redirected_to city_permit_url(@city_permit)
   end
 

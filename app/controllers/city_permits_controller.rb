@@ -69,6 +69,6 @@ class CityPermitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_permit_params
-      params.require(:city_permit).permit(:plan_number, :property_address, :review_status, :review_status_changed_date)
+      params.require(:city_permit).permit(:plannumber, :propertyaddress, :reviewstatus, :reviewstatuschangeddate)
     end
 end
