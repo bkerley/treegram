@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plan number:</strong>
+  <%= @city_permit.plan_number %>
+</p>
+
+<p>
+  <strong>Property address:</strong>
+  <%= @city_permit.property_address %>
+</p>
+
+<p>
+  <strong>Review status:</strong>
+  <%= @city_permit.review_status %>
+</p>
+
+<p>
+  <strong>Review status changed date:</strong>
+  <%= @city_permit.review_status_changed_date %>
+</p>
+
+<%= link_to 'Edit', edit_city_permit_path(@city_permit) %> |
+<%= link_to 'Back', city_permits_path %>

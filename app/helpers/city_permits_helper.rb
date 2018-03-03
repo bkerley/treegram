@@ -1,0 +1,2 @@
+module CityPermitsHelper
+end

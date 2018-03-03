@@ -1,0 +1,2 @@
+class CityPermit < ApplicationRecord
+end
