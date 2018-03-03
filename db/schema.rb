@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20180303203656) do
 
   create_table "permits", force: :cascade do |t|
     t.datetime "notified_at"
+    t.datetime "status_date"
     t.string "address"
-    t.geometry "location", limit: {:srid=>0, :type=>"st_point"}
+    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.bigint "city_permit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

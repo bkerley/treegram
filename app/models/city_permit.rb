@@ -14,21 +14,20 @@ class CityPermit < ApplicationRecord
   def self.fixup!
     Permit.delete_all
     File.open(Rails.root.join('log', 'fixup_permits.log'), 'w') do |l|
-      self.in_batches.each_record do |cs|
+      self.in_batches.each_record do |cp|
         p = Permit.new
         begin
-          addr = MiamiDadeGeo::Address.new_from_address cs.property_address
-          p.lat = addr.lat
-          p.long = addr.long
+          addr = MiamiDadeGeo::Address.new_from_address cp.propertyaddress
+          p.location = "POINT(#{addr.long} #{addr.lat})"
         rescue => e
           l.puts e
-          l.puts cs.deliveryaddress
+          l.puts cp.propertyaddress
         end
-        p.status_date = Time.parse cs.statusdate
-        p.city_source_id = cs.id
-        p.address = cs.deliveryaddress
+        p.status_date = cp.reviewstatuschangeddate
+        p.city_permit = cp
+        p.address = cp.propertyaddress
         p.save!
-        if p.lat
+        if p.location
           print '.'
         else
           print 'x'
