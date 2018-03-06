@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rbnacl-libsodium'
+gem 'rbnacl'
+gem 'jwt'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
@@ -40,6 +43,8 @@ gem 'soda-ruby', require: 'soda'
 gem 'miami_dade_geo'
 gem 'leaflet-rails'
 gem 'twilio-ruby'
+
+gem 'haml-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
