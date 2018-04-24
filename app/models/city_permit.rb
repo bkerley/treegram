@@ -1,8 +1,25 @@
 class CityPermit < ApplicationRecord
 
-  def self.import!
+  def self.initial_import!
     permits = SODA_CLIENT.get('x37d-q5fz',
-                        {'$order' => 'reviewstatuschangeddate ASC'})
+                        {'$order' => 'reviewstatuschangeddate DESC'})
+
+    permits.each do |permit|
+      cs = self.new
+      cs.attributes = permit.to_hash
+      cs.save!
+    end
+  end
+
+  def self.update_import!
+    newest_permit = CityPermit.order(reviewstatuschangeddate: :desc).one
+    since_date = newest_permit.reviewstatuschangeddate.rfc3339
+
+    permits = SODA_CLIENT.get('x37d-q5fz', {
+                                '$order' => 'reviewstatuschangeddate DESC',
+                                '$where' =>
+                                  "reviewstatuschangeddate > '#{since_date}'"
+                              })
 
     permits.each do |permit|
       cs = self.new

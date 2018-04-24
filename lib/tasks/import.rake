@@ -1,5 +1,9 @@
 namespace :import do
-  task permits: :environment do
-    CityPermit.import!
+  task initial: :environment do
+    CityPermit.initial_import!
+  end
+
+  task update: :environment do
+    CityPermit.update_import!
   end
 end
