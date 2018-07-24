@@ -28,4 +28,4 @@ services:
       - ./tmp/dumps:/dumps
     depends_on:
       - psql
-    command: bash # "pg_dump -Fc -f /dumps/$(date +%s).pgdump"
+    command: bash # "pg_dump -Fc -f /dumps/$(date +%s).pgdump -U postgres -h psql treegram_development"
