@@ -22,3 +22,10 @@ services:
       - .:/treegram
     depends_on:
       - psql
+  dump:
+    image: mdillon/postgis
+    volumes:
+      - ./tmp/dumps:/dumps
+    depends_on:
+      - psql
+    command: bash # "pg_dump -Fc -f /dumps/$(date +%s).pgdump"
