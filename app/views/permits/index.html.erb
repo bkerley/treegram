@@ -5,24 +5,28 @@
 <table>
   <thead>
     <tr>
+      <th>Status date</th>
       <th>Notified at</th>
       <th>Address</th>
       <th>Location</th>
       <th>City permit</th>
+      <th>Updated at</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @permits.each do |permit| %>
-      <tr>
-        <td><%= permit.notified_at %></td>
-        <td><%= permit.address %></td>
-        <td><%= permit.location %></td>
-        <td><%= permit.city_permit %></td>
-        <td><%= link_to 'Show', permit %></td>
-        <td><%= link_to 'Edit', edit_permit_path(permit) %></td>
-        <td><%= link_to 'Destroy', permit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <tr>
+      <td><%= permit.status_date %></td>
+      <td><%= permit.notified_at %></td>
+      <td><%= permit.address %></td>
+      <td><%= permit.location %></td>
+      <td><%= permit.city_permit %></td>
+      <td><%= permit.updated_at %></td>
+      <td><%= link_to 'Show', permit %></td>
+      <td><%= link_to 'Edit', edit_permit_path(permit) %></td>
+      <td><%= link_to 'Destroy', permit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

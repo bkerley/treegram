@@ -5,10 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Plannumber</th>
-      <th>Propertyaddress</th>
-      <th>Reviewstatus</th>
-      <th>Reviewstatuschangeddate</th>
+      <th>Plan number</th>
+      <th>Property address</th>
+      <th>Review status</th>
+      <th>Review status changed date</th>
+      <th>Updated at</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= city_permit.propertyaddress %></td>
         <td><%= city_permit.reviewstatus %></td>
         <td><%= city_permit.reviewstatuschangeddate %></td>
+        <td><%= city_permit.updated_at %></td>
         <td><%= link_to 'Show', city_permit %></td>
         <td><%= link_to 'Edit', edit_city_permit_path(city_permit) %></td>
         <td><%= link_to 'Destroy', city_permit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
