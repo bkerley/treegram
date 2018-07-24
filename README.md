@@ -1,24 +1,31 @@
-# README
+# treegram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+this app is eventually gonna text people about tree permits near a given address
 
-Things you may want to cover:
+## using
 
-* Ruby version
+you need docker and docker-compose
 
-* System dependencies
+1. `docker-compose build`
+2. `docker-compose up -d`
 
-* Configuration
+it shows up on http://localhost:3000
 
-* Database creation
+## loading permits
 
-* Database initialization
+initial import: `docker-compose run sh rake import:initial`
+update import: `docker-compose run sh rake import:update`
+convert city permits to Permits: `docker-compose run sh rake fixup:permits`
 
-* How to run the test suite
+why the latter? Permit objects have a PostGIS location field that can be used
+for geospatial queries
 
-* Services (job queues, cache servers, search engines, etc.)
+## dumping the database
 
-* Deployment instructions
+`docker-compose run dump pg_dump -Fc -f /dumps/$(date +%s).pgdump -U postgres -h psql treegram_development`
 
-* ...
+restoring it is left as an exercise for the reader :P
+
+# help
+
+ask bryce!
