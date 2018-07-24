@@ -4,7 +4,11 @@ class PermitsController < ApplicationController
   # GET /permits
   # GET /permits.json
   def index
-    @permits = Permit.all
+    @permits = Permit.
+                 order(status_date: :desc,
+                       updated_at: :desc,
+                       id: :desc).
+                 all
   end
 
   # GET /permits/1

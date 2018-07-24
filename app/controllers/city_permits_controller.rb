@@ -4,7 +4,11 @@ class CityPermitsController < ApplicationController
   # GET /city_permits
   # GET /city_permits.json
   def index
-    @city_permits = CityPermit.order(reviewstatuschangeddate: :desc).all
+    @city_permits = CityPermit.
+                      order(reviewstatuschangeddate: :desc,
+                            updated_at: :desc,
+                            id: :desc).
+                      all
   end
 
   # GET /city_permits/1
