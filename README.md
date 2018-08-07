@@ -14,7 +14,9 @@ it shows up on http://localhost:3000
 ## loading permits
 
 initial import: `docker-compose run sh rake import:initial`
+
 update import: `docker-compose run sh rake import:update`
+
 convert city permits to Permits: `docker-compose run sh rake fixup:permits`
 
 why the latter? Permit objects have a PostGIS location field that can be used
