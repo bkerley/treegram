@@ -32,6 +32,8 @@ restoring it is left as an exercise for the reader :P
 
 I welcome contributions and pull requests! However, this isn't my job or anything so it may take some time for me to get to them.
 
+Contributors are expected to abide by the Contributor Convenant as detailed in `CODE_OF_CONDUCT.md`
+
 Join the #treegram channel on the Code for Miami chat: http://cfm-invite.herokuapp.com
 
 # help
