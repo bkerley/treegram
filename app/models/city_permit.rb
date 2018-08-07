@@ -34,7 +34,7 @@ class CityPermit < ApplicationRecord
     Permit.delete_all
     File.open(Rails.root.join('log', 'fixup_permits.log'), 'w') do |l|
       self.in_batches.each_record do |cp|
-        cp.fixup
+        cp.fixup!
       end
     end
   end
